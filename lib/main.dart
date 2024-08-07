@@ -1,5 +1,7 @@
 import 'package:adv_flutter_exam/provider/HomeProvider.dart';
+import 'package:adv_flutter_exam/view/screen/Detail/Detail_Screen.dart';
 import 'package:adv_flutter_exam/view/screen/HomeScreen/home_screen.dart';
+import 'package:adv_flutter_exam/view/screen/Saved/SavedScreen.dart';
 import 'package:adv_flutter_exam/view/screen/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,13 +17,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => HomeProvider(),)
+        ChangeNotifierProvider(
+          create: (context) => HomeProvider(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const SplashScreen(),
-          '/home': (context) => const HomeScreen(),
+          '/home': (context) => HomeScreen(),
+          '/detail': (context) => DetailScreen(),
+          '/save': (context) => SavedScreen(),
         },
       ),
     );
